@@ -45,6 +45,7 @@ const dashboardSlice = createSlice({
       })
       .addCase(getCurrentWeather.fulfilled, (state, action) => {
         console.log(action.payload);
+        console.log(action.payload)
         state.dayWeather = action.payload;
         state.isLoading = false;
       })

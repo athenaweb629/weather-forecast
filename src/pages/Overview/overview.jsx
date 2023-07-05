@@ -66,8 +66,8 @@ function Overview() {
   ];
   useEffect(() => {
     dispatch(getCurrentWeather({ cityname: cityname }));
-    //eslint-disable-next-line
-  }, [cityname]);
+      //eslint-disable-next-line
+  }, []);
 
   useEffect(() => {
     if (dayWeather) {
