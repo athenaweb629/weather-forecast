@@ -4,25 +4,14 @@ import Title from "components/Title";
 import { Card, Table } from "components/core";
 import { getCurrentWeather } from "redux/dashboard/dashboardSlice";
 import { AtomSpinner } from "react-epic-spinners";
-import {
-  faCloud,
-  faSun,
-  faCloudSun,
-  faCloudShowersHeavy,
-  faCloudSunRain,
-  faCloudBolt,
-  faSnowflake,
-  faSmog,
-} from "@fortawesome/free-solid-svg-icons";
 import TempCell from "./tempCell";
 import { Box, Typography } from "@mui/material";
-
 function Overview() {
   const dispatch = useDispatch();
   const { dayWeather, isLoading } = useSelector((state) => state.dashboard);
 
   const [tableBody, setTableBody] = React.useState([]);
-  const [tableHead, setTableHead] = React.useState([
+  const [tableHead] = React.useState([
     { id: "location", label: "Location", align: "center" },
     { id: "temp", label: "Temp", align: "center" },
     {
@@ -77,7 +66,8 @@ function Overview() {
   ];
   useEffect(() => {
     dispatch(getCurrentWeather({ cityname: cityname }));
-  }, []);
+    //eslint-disable-next-line
+  }, [cityname]);
 
   useEffect(() => {
     if (dayWeather) {
@@ -175,6 +165,7 @@ function Overview() {
       });
       setTableBody(convertedData);
     }
+    //eslint-disable-next-line
   }, [dayWeather]);
 
   return (

@@ -1,13 +1,13 @@
-import react, { Fragment, useEffect } from "react";
+import { Fragment, useEffect } from "react";
 import {Typography } from "@mui/material";
 import Title from "components/Title";
-import { Card, Table } from "components/core";
+import { Card } from "components/core";
 import {get30daysWeather} from "redux/forecast/forecastSlice";
 import { useDispatch, useSelector } from "react-redux";
 const Forecast = () => {
 
     const dispatch = useDispatch();
-    const { isLoading, dayWeather} = useSelector(state=>state.forecast)
+    const {dayWeather} = useSelector(state=>state.forecast)
 
     const cityname = [
         "Bandon, us",
@@ -25,9 +25,10 @@ const Forecast = () => {
       ];
     useEffect(()=>{
         dispatch(get30daysWeather(cityname))
+        //eslint-disable-next-line
     }, [])
 
-    
+
     useEffect(()=>{
         console.log(dayWeather)
     }, [dayWeather])

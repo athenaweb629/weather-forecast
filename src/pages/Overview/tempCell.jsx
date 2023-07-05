@@ -1,4 +1,4 @@
-export default (props) => {
+const TempCell = (props) => {
   const { temp } = props;
 
   const colorList = [
@@ -19,7 +19,7 @@ export default (props) => {
     { temp: -30, from: "rgb(15, 7, 250)", to: "rgb(0, 157, 255)" },
   ];
 
-  const tempMatch = colorList.filter((color) => {
+  const tempMatch = colorList.filter(function (color) {
     var t = temp - 273.15;
     if (t > 45) {
       t = 45;
@@ -29,7 +29,7 @@ export default (props) => {
     if (Math.abs(color.temp - t) < 5) {
       return color;
     }
-    return;
+    return null;
   })[0];
   return (
     <p
@@ -47,3 +47,5 @@ export default (props) => {
     </p>
   );
 };
+
+export default TempCell;

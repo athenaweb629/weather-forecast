@@ -1,8 +1,8 @@
 import React from "react";
 import { useRoutes, Navigate } from "react-router-dom";
-import { AuthLayout, PrivateLayout } from "layouts";
+import { PrivateLayout } from "layouts";
 
-import { Login, Register, Overview, Forecast } from "pages";
+import {Overview, Forecast } from "pages";
 import ExtraLayout from "layouts/ExtraLayout/ExtraLayout";
 
 export const router = [
